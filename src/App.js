@@ -11,36 +11,8 @@ const App = () => {
   const [map, setMap] = useState({})
   const [longitude, setLongitude] = useState(-122.335167)
   const [latitude, setLatitude] = useState(47.608013)
-
-  const convertToPoints = (lngLat) => {
-    return {
-      point: {
-        latitude: lngLat.lat,
-        longitude: lngLat.lng
-      }
-    }
-  }
-
-  const routes = (geoJson, map) => {
-    if (map.getLayer('route')) {
-      map.removeLayer('route')
-      map.removeSource('route')
-    }
-    map.addLayer({
-      id: 'route',
-      type: 'line',
-      source: {
-        type: 'geojson',
-        data: geoJson
-      },
-      paint: {
-        'line-color': 'red',
-        'line-width': 6
   
-      }
-    })
-  }
-
+  // Adding markers on click
   const deliveryMarker = (lngLat, map) => {
     const element = document.createElement('div')
     element.className = 'marker-delivery'
@@ -50,7 +22,37 @@ const App = () => {
     .setLngLat(lngLat)
     .addTo(map)
   }
-
+  
+  // routes in correct format
+  const routes = (jsonData, map) => {
+    if (map.getLayer('route')) {
+      map.removeLayer('route')
+      map.removeSource('route')
+    }
+    map.addLayer({
+      id: 'route',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: jsonData
+      },
+      paint: {
+        'line-color': 'red',
+        'line-width': 6
+      }
+    })
+  }
+  
+  // converting to correct format for use
+  const convertToPoints = (locationInput) => {
+    return {
+      point: {
+        latitude: locationInput.lat,
+        longitude: locationInput.lng
+      }
+    }
+  }
+  
   useEffect(() => {
     const origin = {
       lng: longitude,
@@ -61,12 +63,12 @@ const App = () => {
     let map = tt.map({
       key: process.env.REACT_APP_API_KEY,
       container: mapElement.current,
+      center: [longitude, latitude],
+      zoom: 15,
       stylesVisibility: {
         trafficIncidents: true,
         trafficFlow: true,
       },
-      center: [longitude, latitude],
-      zoom: 14,
     })
     setMap(map)
 
@@ -81,9 +83,7 @@ const App = () => {
       const marker = new tt.Marker({
         draggable: true,
         element: element,
-      })
-        .setLngLat([longitude, latitude])
-        .addTo(map)
+      }).setLngLat([longitude, latitude]).addTo(map)
       
       marker.on('dragend', () => {
         const lngLat = marker.getLngLat()
@@ -109,11 +109,11 @@ const App = () => {
     return new Promise((resolve, reject) => {
       ttapi.services
         .matrixRouting(callParameters)
-        .then((matrixAPIResults) => {
-          const results = matrixAPIResults.matrix[0]
-          const resultsArray = results.map((result, index) => {
+        .then(m => {
+          const results = m.matrix[0]
+          const resultsArray = results.map((result, i) => {
             return {
-              location: locations[index],
+              location: locations[i],
               drivingtime: result.response.routeSummary.travelTimeInSeconds,
             }
           })
@@ -143,7 +143,6 @@ const App = () => {
         })
       })
     }
-
 
     map.on('click', e => {
       destinations.push(e.lngLat)
