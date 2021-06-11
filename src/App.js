@@ -8,7 +8,7 @@ import '@tomtom-international/web-sdk-maps/dist/maps.css'
 
 import Logo from './image/direction.png'
 
-Geocode.setApiKey("AIzaSyD2O8UIsUWU-tbBKE5W5W9CSRxamWLDTnk");
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 Geocode.setLanguage("en");
 
 const App = () => {
