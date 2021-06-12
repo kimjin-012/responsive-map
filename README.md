@@ -1,10 +1,10 @@
 # Your Destination
 
-Creating a responsive map that allows uers can be interactive.
+Creating a responsive map that allows users can be interactive.
 
 ## About this Project
 
-Welcome to Your Direction web! Created using React!
+Welcome to "Your Direction" web! Created using React!
 <br/>
 <img src="./image/shocase.gif" alt="show case"/>
 
