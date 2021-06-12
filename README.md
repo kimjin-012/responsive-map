@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Your Destination
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Creating a responsive map that allows uers can be interactive.
 
-## Available Scripts
+## About this Project
 
-In the project directory, you can run:
+Welcome to Your Direction web! Created using React!
+<br/>
+<img src="./image/shocase.gif" alt="show case"/>
 
-### `npm start`
+I have used Google Maps API before to create a simple website that displays the location of an address.
+But this time I wanted to create a website with a map that can be interactive!
+Draggable functions distance calculation, and even displaying the live traffic information (such as accidents and ongoing construction).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+All of this was possible using APIs within React! Learning about new technologies is always challenging but I had a lot of fun!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Built with
+* React
+* Google Maps API
+* Tom Tom API
+* HTML/CSS
+* Bootstrap
 
-### `npm test`
+### Main Page
+<img src="./image/main.png" alt="main page">
+This is the Main page where the user can see the default location of the map.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The default location is set to Seattle (Latitude: 47.608013, Longitude: -122.335167)
+* The starting marker is displayed at the center of the map, user can drag this to change the location of the marker. Marker style is displayed below...
+<br/>
+<img src="./src/image/locations.png" alt="Starting Marker" width="50">
 
-### `npm run build`
+* The message "This is you" is also displayed to assist users to help find the marker easily. This message can be removed by clicking X at the top right.
+* Live traffic data is displaying as the user uses the website. Basic information such as Green road means the traffic flow is moderate, Red road means the traffic flow is crowded, and accident marker can be seen sometimes as well.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pathing
+<img src="./image/path.png" alt="main page">
+Users can click anywhere on the map to set a destination marker (colored in orange). The map will automatically connect the two markers with the red line after calculating the fastest route.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* The marker is displayed as the user click on the desire destination. Marker style is displayed below...
+<br/>
+<img src="./src/image/location.png" alt="Starting Marker" width="50">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* The red line shows the fastest route from starting marker to the destination marker. The relative time is calculated using Tom Tom API.
 
-### `npm run eject`
+### Search
+<img src="./image/search.png" alt="main page">
+Any User can use the search bar to type in any address they wish to start from (In this example University of Washington).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* The starting marker position is now changed, however, the user can still drag this marker.
+* Other functions are still usable, like choosing the destination marker.
+* Searching for an address will convert the location into Longitude and Latitude. (using Geocode and Google Map API) 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Basic functions
+<img src="./image/view.png" alt="main page">
+You can definitely use basic map functions such as zoom in and zoom out. Since the map is created using the TomTom API instead of Google Map API, implementing these functions can be a little different.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Conclusion
+Thank you for checking out my project! This was very different from other projects I have worked on so far. Using different technologies is always going to be challenging but I think it's always rewarding and exciting!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ ## Getting Started
+Starting out the project is simple, install Front-end (React) application (I named the app name "client")
+```
+npx create-react-app Your-app-name
+```
+this will create a folder with the name "Your-app-name"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+(Side not, aquire a google map API through https://developers.google.com/maps)
+<br/>
+(And aquire a Tom Tom api and resources of how to use their service through https://developer.tomtom.com/)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact / About Me
+Jin Kim - [Github](https://github.com/kimjin-012) - [LinkedIn](https://www.linkedin.com/in/jin-kim-code/) - [Portfolio](http://jinkim.tech/)

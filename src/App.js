@@ -65,7 +65,7 @@ const App = () => {
         ...address,
         [e.target.name]: e.target.value
     })
-}
+  }
 
   const submitHandler = e => {
     e.preventDefault();
@@ -192,7 +192,7 @@ const App = () => {
         <div className="App">
           <img src={Logo} alt="Logo" />
           <div className="search-bar">
-            <h1>Your Location??</h1>
+            <h1>Your Destination</h1>
             {/* <label htmlFor="longtitude">Longitude: </label>
             <input type="text" id="longitude" className="longitude" onChange={e => {setLongitude(e.target.value)}}/>
             <label htmlFor="latitude">Latitude:</label>

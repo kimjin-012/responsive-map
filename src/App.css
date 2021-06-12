@@ -18,16 +18,16 @@ body {
 .marker {
   background-image: url('./image/locations.png');
   background-size: cover;
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   background-color: aliceblue;
   border-radius: 15px;
   border: solid 2px darkblue;
 }
 
 .marker-delivery {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   background-image: url('./image/location.png');
   background-size: cover;
   border-radius: 15px;
