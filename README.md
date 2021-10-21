@@ -72,4 +72,4 @@ this will create a folder with the name "Your-app-name"
 (And aquire a Tom Tom api and resources of how to use their service through https://developer.tomtom.com/)
 
 ## Contact / About Me
-Jin Kim - [Github](https://github.com/kimjin-012) - [LinkedIn](https://www.linkedin.com/in/jin-kim-code/) - [Portfolio](http://jinkim.tech/)
+Jin Kim - [Github](https://github.com/kimjin-012) - [LinkedIn](https://www.linkedin.com/in/jin-kim-code/) - [Portfolio](https://github.com/kimjin-012/my-portfolio)
